@@ -190,6 +190,7 @@ public class Student
 		{
 			File outFile = new File(name + ".txt");
 			PrintWriter write = new PrintWriter(outFile);
+			write.println("----------Student Information----------");
 			write.println("Id : " + id);
 			write.println("Name : " + name);
 			write.println("Department : " + department);
