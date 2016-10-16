@@ -65,7 +65,11 @@ public class Student
 				GPAsInVariousTerms[i] = input.nextDouble();
 				i++;
 			}
-			System.out.println(GPAsInVariousTerms[0] + " " + GPAsInVariousTerms[1]);
+			for(int j=0; GPAsInVariousTerms[j]!=0; j++)
+			{
+				System.out.print(GPAsInVariousTerms[j] + " ");
+			}
+			System.out.println();
 			if(input.hasNextLine() == true)
 				temp = 10;
 			else
@@ -94,6 +98,7 @@ public class Student
 		}
 		if(temp == 0)
 		{
+			System.out.println("1st semister 1st term");
 			Scanner in = new Scanner(System.in);
 			System.out.print("CSE 1100 : Introduction to Computer Systems\tCredit: 1.50\tGrade point: ");
 			sub11[0] = in.nextDouble();
@@ -118,6 +123,7 @@ public class Student
 		}
 		if(temp == 1)
 		{
+			System.out.println("1st semister 2nd term");
 			Scanner in = new Scanner(System.in);
 			System.out.print("CHEM 1207 : Chemistry\tCredit: 3.00\tGrade point: ");
 			sub12[0] = in.nextDouble();
@@ -144,6 +150,7 @@ public class Student
 		}
 		if(temp == 2)
 		{
+			System.out.println("2nd semister 1st term");
 			Scanner in = new Scanner(System.in);
 			System.out.print("CSE 2101 : Object Oriented Programming\tCredit: 3.00\tGrade point: ");
 			sub21[0] = in.nextDouble();
