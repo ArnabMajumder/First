@@ -9,7 +9,7 @@ Khulna University of Engineering and Technology,Khulna
 GPAs in various terms:
 3.54 3.35
 Id:
-1407005
+1507005
 Name:
 Mahedi Hasan
 Department:
@@ -17,4 +17,4 @@ Computer Science and Engineering
 University:
 Khulna University of Engineering and Technology,Khulna
 GPAs in various terms:
-3.60 3.31
+3.60
