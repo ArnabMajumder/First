@@ -2,12 +2,21 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+	This is a Student class.
+	In this class basic information of single/multiple students can be read from StudentDetails text file.
+	After reading the basic information one can update student information by id and can save the updated information in file.
+*/
+
 public class Student
 {
-	int id;
-	String name, department, university, skip;
-	double [] GPAsInVariousTerms = new double[8];
-	double	CGPA;
+	int id; //contains roll of a student
+	String name; //contains name of a student
+	String department; //contains department of a student
+	String university; //contains university of a student
+	String skip; //a string to skip unused line from file
+	double [] GPAsInVariousTerms = new double[8]; //contains GPAs in various term
+	double	CGPA; //contains CGPA of a student
 	/**
 		default constructor
 		initializes default values
@@ -24,7 +33,7 @@ public class Student
 		CGPA = 0.0;
 	}
 	/**
-		load students from file
+		load students from StudentDetails text file
 	*/
 	public int loadStudents(int temp1) throws Exception
 	{
@@ -42,34 +51,34 @@ public class Student
 					skip = input.nextLine();
 				}
 			}
-			skip = input.nextLine();
-			System.out.println(skip);
-			id = Integer.parseInt(input.nextLine());
-			System.out.println(id);
-			skip = input.nextLine();
-			System.out.println(skip);
-			name = input.nextLine();
-			System.out.println(name);
-			skip = input.nextLine();
-			System.out.println(skip);
-			department = input.nextLine();
-			System.out.println(department);
-			skip = input.nextLine();
-			System.out.println(skip);
-			university = input.nextLine();
-			System.out.println(university);
-			skip = input.nextLine();
-			System.out.println(skip);
-			while(input.hasNextDouble() == true)
+			skip = input.nextLine(); //skip Id: line from StudentDetails text file
+			System.out.println(skip); //print Id: in console
+			id = Integer.parseInt(input.nextLine()); //takes Id from file as a string and converts it to integer
+			System.out.println(id); //print Id
+			skip = input.nextLine(); //skip Name: line from StudentDetails text file
+			System.out.println(skip); //print Name: in console
+			name = input.nextLine(); //takes name from file as a string 
+			System.out.println(name); //print name
+			skip = input.nextLine(); //skip Department: line from StudentDetails text file
+			System.out.println(skip); //print Department: in console
+			department = input.nextLine(); //takes department from file as a string
+			System.out.println(department); //print department
+			skip = input.nextLine(); //skip University: line from StudentDetails text file
+			System.out.println(skip); //print University: in console
+			university = input.nextLine(); //takes university from file as a string
+			System.out.println(university); //print university
+			skip = input.nextLine(); //skip GPAs in various terms: line from StudentDetails text file
+			System.out.println(skip); //print GPAs in various terms: in console
+			while(input.hasNextDouble() == true) //runs the loop until there is no GPAs in the line
 			{
-				GPAsInVariousTerms[i] = input.nextDouble();
+				GPAsInVariousTerms[i] = input.nextDouble(); //takes GPAs one by one from file
 				i++;
 			}
-			for(int j=0; GPAsInVariousTerms[j]!=0; j++)
+			for(int j=0; GPAsInVariousTerms[j]!=0; j++) //prints the GPAs in various terms
 			{
 				System.out.print(GPAsInVariousTerms[j] + " ");
 			}
-			System.out.println();
+			System.out.println(); //prints a new line
 			if(input.hasNextLine() == true)
 				temp = 10;
 			else
@@ -83,22 +92,22 @@ public class Student
 		return temp;
 	}
 	/**
-		method that update student term
+		method that update student term result
 	*/
 	public void updateStudentById()
 	{
 		int temp = 0;
 		double GPA = 0.0;
-		double [] sub11 = new double[9];
-		double [] sub12 = new double[10];
-		double [] sub21 = new double[8];
-		for(int i=0; GPAsInVariousTerms[i]!=0; i++)
+		double [] sub11 = new double[9]; //array that contains grade point of 1st semester 1st term
+		double [] sub12 = new double[10]; //array that contains grade point of 1st semester 2nd term
+		double [] sub21 = new double[8]; //array that contains grade point of 2nd semester 1st term
+		for(int i=0; GPAsInVariousTerms[i]!=0; i++) //counts the term of a student which needed to be updated
 		{
 			temp = i+1;
 		}
 		if(temp == 0)
 		{
-			System.out.println("1st semister 1st term");
+			System.out.println("1st semester 1st term");
 			Scanner in = new Scanner(System.in);
 			System.out.print("CSE 1100 : Introduction to Computer Systems\tCredit: 1.50\tGrade point: ");
 			sub11[0] = in.nextDouble();
@@ -123,7 +132,7 @@ public class Student
 		}
 		if(temp == 1)
 		{
-			System.out.println("1st semister 2nd term");
+			System.out.println("1st semester 2nd term");
 			Scanner in = new Scanner(System.in);
 			System.out.print("CHEM 1207 : Chemistry\tCredit: 3.00\tGrade point: ");
 			sub12[0] = in.nextDouble();
@@ -150,7 +159,7 @@ public class Student
 		}
 		if(temp == 2)
 		{
-			System.out.println("2nd semister 1st term");
+			System.out.println("2nd semester 1st term");
 			Scanner in = new Scanner(System.in);
 			System.out.print("CSE 2101 : Object Oriented Programming\tCredit: 3.00\tGrade point: ");
 			sub21[0] = in.nextDouble();
@@ -218,7 +227,7 @@ public class Student
 		}
 		catch(Exception e)
 		{
-			System.out.println("Error occured while writing in file.");
+			System.out.println("Error occurred while writing in file.");
 		}
 	}
 	/**
@@ -226,15 +235,15 @@ public class Student
 	*/
 	public static void main(String args[]) throws Exception
 	{
-		Student [] s = new Student[10];
+		Student [] s = new Student[10]; //array of student objects
 		int temp1 = 0, temp2 = 0;
-		for(int i=0; i<s.length; i++)
+		for(int i=0; i<s.length; i++) //initializes the student objects
 		{
 			s[i] = new Student();
 		}
 		for(int i=0; i<s.length; i++)
 		{
-			if(s[i].loadStudents(temp1) < 15)
+			if(s[i].loadStudents(temp1) < 15) //condition that fulfils if saveInAFile() method should be called for reading another student's information
 				temp1 += 10;
 			else
 				break;
@@ -244,19 +253,19 @@ public class Student
 		{	
 			int loopBreak;
 			Scanner in = new Scanner(System.in);
-			while(true)
+			while(true) //loop that will force one to give '0' or '1'
 			{
 				System.out.println("#Press '0' to exit the program");
-				System.out.println("#Press '1' to procced on...");
+				System.out.println("#Press '1' to proceed on...");
 				loopBreak = in.nextInt();
 				if(loopBreak == 0 || loopBreak == 1)
 					break;
 			}
-			if(loopBreak == 0)
+			if(loopBreak == 0) //
 				break;
-			System.out.print("Please Enter a Id: ");
-			int id = in.nextInt();
-			for(int i=0; i<s.length; i++)
+			System.out.print("Please Enter a Id: "); //asks for a Id for operations
+			int id = in.nextInt(); //takes the id from user
+			for(int i=0; i<s.length; i++) //find the object for given Id
 			{
 				if(id == s[i].id)
 				{
@@ -271,11 +280,11 @@ public class Student
 			switch(caseNumber)
 			{
 				case 1:
-				s[temp2].updateStudentById();
-				s[temp2].saveInAFile();
+				s[temp2].updateStudentById(); //calls updateStudentById() method for given Id and updates the information
+				s[temp2].saveInAFile(); //calls saveInAFile() method for given Id to save the updated information
 				break;
 				case 2:
-				s[temp2].saveInAFile();
+				s[temp2].saveInAFile(); //calls saveInAFile() method for given Id to save the information
 				break;
 				default:
 				break;
